@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baccho ka Sathi - Welcome</title>
+  <style>
+    /* Center the image on the page */
+    body, html {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f8ff;
+      margin: 0;
+    }
+    #logo {
+      max-width: 80%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo image -->
+  <img id="logo" src="logo.jpg" alt="Baccho ka Sathi Logo">
+
+  <script>
+    // Redirect to home.html when the image loads successfully
+    document.getElementById('logo').onload = function() {
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 2000); // Delay to give users time to see the logo
+    };
+
+    // Optionally, add error handling if the image fails to load
+    document.getElementById('logo').onerror = function() {
+      alert("Failed to load the logo. Please try refreshing the page.");
+    };
+  </script>
+</body>
+</html>

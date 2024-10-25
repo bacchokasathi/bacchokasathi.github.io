@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rating - Baccho ka Sathi</title>
+  <style>
+    /* General styling for mobile responsiveness */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      padding: 20px;
+      max-width: 480px;
+      margin: auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #4CAF50;
+      font-size: 2em;
+      margin: 10px 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .menu-button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 20px 0;
+      transition: background-color 0.3s;
+    }
+    .menu-button:hover {
+      background-color: #0056b3;
+    }
+    .menu {
+      display: none;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-top: 10px;
+      transition: max-height 0.3s ease-out;
+    }
+    .menu a {
+      display: block;
+      padding: 8px 0;
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .menu a:hover {
+      color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4CAF50;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    .footer p {
+      margin: 5px 0;
+    }
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .star {
+      font-size: 2em;
+      color: gold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .star.selected {
+      color: darkorange; /* Change the color for selected stars */
+    }
+  </style>
+  <script>
+    let currentRating = 0;
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function rate(star) {
+      currentRating = star;
+      const stars = document.querySelectorAll('.star');
+      stars.forEach((s, index) => {
+        s.classList.toggle('selected', index < star); // Highlight selected stars
+      });
+      alert('Thank you for your rating of ' + star + ' star' + (star > 1 ? 's' : '') + '!');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Rate Us</h1>
+      <p>Your feedback helps us improve!</p>
+    </div>
+
+    <!-- Menu Button -->
+    <button class="menu-button" onclick="toggleMenu()">Menu</button>
+    <div id="menu" class="menu">
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="chat.html">Chat</a>
+      <a href="rating.html">Rating</a>
+    </div>
+
+    <div class="rating" aria-label="Rate Us">
+      <span class="star" onclick="rate(1)" aria-label="1 star">&#9733;</span>
+      <span class="star" onclick="rate(2)" aria-label="2 stars">&#9733;</span>
+      <span class="star" onclick="rate(3)" aria-label="3 stars">&#9733;</span>
+      <span class="star" onclick="rate(4)" aria-label="4 stars">&#9733;</span>
+      <span class="star" onclick="rate(5)" aria-label="5 stars">&#9733;</span>
+    </div>
+    <p>Click on the stars above to rate us!</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Baccho ka Sathi. All Rights Reserved.</p>
+    <p>Follow us on <a href="#" style="color: white; text-decoration: underline;">Facebook</a>, <a href="#" style="color: white; text-decoration: underline;">Twitter</a>, and <a href="#" style="color: white; text-decoration: underline;">Instagram</a>.</p>
+  </div>
+</body>
+</html>
